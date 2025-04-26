@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_layout_contact_ctas",
+  "info": {
+    "displayName": "Contact CTA",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    }
+  }
+}

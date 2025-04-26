@@ -53,6 +53,9 @@ export async function getLandingPage() {
               },
             },
           },
+          "layout.contact-cta": {
+            populate: "*",
+          },
           "layout.price-grid": {
             populate: {
               priceCard: {
@@ -105,13 +108,37 @@ export async function getPageBySlug(slug: string, status: string) {
               },
             },
           },
+          "layout.content-with-image-quadrat": {
+            populate: {
+              image: {
+                fields: ["url", "alternativeText", "name"],
+              },
+            },
+          },
+          "layout.contact-section": {
+            populate: "*",
+          },
+          "layout.contact-cta": {
+            populate: "*",
+          },
+          "blocks.video": {
+            populate: {
+              image: {
+                fields: ["url", "alternativeText", "name"],
+              },
+            },
+          },
+          "blocks.text": {
+            populate: "*",
+          },
+        },
       },
     },
     filters: {
       slug: slug,
     },
     status: status as "draft" | "published" | undefined,
-}});
+  });
   return page;
 }
 

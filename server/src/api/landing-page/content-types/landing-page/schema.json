@@ -26,7 +26,8 @@
         "layout.section-heading",
         "layout.content-with-image",
         "layout.price-grid",
-        "layout.content-with-image-quadrat"
+        "layout.content-with-image-quadrat",
+        "layout.contact-cta"
       ]
     }
   }

@@ -15,7 +15,9 @@ type ComponentType =
   | "layout.price-grid"
   | "blocks.video"
   | "blocks.text"
-  | "layout.content-with-image-quadrat";
+  | "layout.content-with-image-quadrat"
+  | "layout.contact-cta"
+  | "layout.contact-section";
 
 interface Base<T extends ComponentType, D extends {} = {}> {
   __component: T;
@@ -32,7 +34,7 @@ export interface NavLink {
   isPrimary: boolean;
 }
 
-export type Block = HeroProps | CardGridProps | SectionHeadingProps | ContentWithImageProps | PriceGridProps | VideoProps | TextProps | ContentWithImageQuadratProps;
+export type Block = HeroProps | ContactSectionProps | CardGridProps | SectionHeadingProps | ContentWithImageProps | PriceGridProps | VideoProps | ContactCTAProps | TextProps | ContentWithImageQuadratProps;
 
 export interface HeroProps extends Base<"layout.hero"> {
   heading: string;
@@ -98,6 +100,13 @@ export interface PriceGridProps extends Base<"layout.price-grid"> {
   }[];
 }
 
+export interface ContactCTAProps extends Base<"layout.contact-cta"> {
+  title: string;
+  subtitle: string;
+  buttonText: string;
+  buttonLink: string;
+}
+
 export interface VideoProps extends Base<"blocks.video"> {
   title: string;
   description: string;
@@ -108,6 +117,12 @@ export interface VideoProps extends Base<"blocks.video"> {
     end: string;
   },
   image: Image;
+}
+
+export interface ContactSectionProps extends Base<"layout.contact-section"> {
+  title: string;
+  subtitle: string;
+  centered?: boolean;
 }
 
 export interface TextProps extends Base<"blocks.text"> {

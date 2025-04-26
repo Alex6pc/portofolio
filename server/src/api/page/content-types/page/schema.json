@@ -28,8 +28,13 @@
         "layout.section-heading",
         "layout.hero",
         "layout.content-with-image",
+        "layout.content-with-image-quadrat",
+        "layout.contact-cta",
+        "layout.contact-section",
         "layout.card-grid",
-        "layout.price-grid"
+        "layout.price-grid",
+        "blocks.video",
+        "blocks.text"
       ]
     },
     "seo": {

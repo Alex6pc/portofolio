@@ -8,6 +8,8 @@ import { CardCarousel } from "@/components/block-renderer/layout/card-carousel";
 import ContentWithImageQuadrat from "@/components/block-renderer/layout/content-with-image-quadrat";
 import { Video } from "@/components/block-renderer/blocks/video";
 import { Text } from "@/components/block-renderer/blocks/text";
+import { ContactCTA } from "./layout/contact-cta";
+import { ContactSection } from "./layout/contact-section";
 
 function blockRenderer(block: Block, index: number) {
   switch (block.__component) {
@@ -27,6 +29,10 @@ function blockRenderer(block: Block, index: number) {
       return <Text key={index} {...block} />;
     case "layout.content-with-image-quadrat":
       return <ContentWithImageQuadrat key={index} {...block} />;
+    case "layout.contact-cta":
+      return <ContactCTA key={index} {...block} />;
+    case "layout.contact-section":
+      return <ContactSection key={index} {...block} />;
     default:
       return null;
   }
