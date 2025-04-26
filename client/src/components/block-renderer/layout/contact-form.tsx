@@ -3,12 +3,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { getStrapiURL } from "@/lib/utils";
+import Link from "next/link";
 
 interface FormData {
   name: string;
   email: string;
   message: string;
   phone?: string;
+  privacyAccepted: boolean;
 }
 
 const LoadingOverlay = () => (
@@ -31,6 +33,7 @@ export function ContactForm() {
     email: "",
     message: "",
     phone: "",
+    privacyAccepted: false,
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -70,7 +73,7 @@ export function ContactForm() {
         type: "success",
         message: "Nachricht erfolgreich gesendet!",
       });
-      setFormData({ name: "", email: "", message: "", phone: "" });
+      setFormData({ name: "", email: "", message: "", phone: "", privacyAccepted: false });
     } catch (error) {
       setSubmitStatus({
         type: "error",
@@ -169,6 +172,34 @@ export function ContactForm() {
             className="mt-1 block w-full bg-background text-text rounded-md border border-primary px-3 py-2 shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
           />
         </div>
+
+        {/* Privacy Policy Checkbox */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="flex items-start space-x-3"
+        >
+          <input
+            type="checkbox"
+            id="privacy"
+            checked={formData.privacyAccepted}
+            onChange={(e) => setFormData({ ...formData, privacyAccepted: e.target.checked })}
+            className="mt-1 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+            required
+          />
+          <label htmlFor="privacy" className="text-sm text-text-secondary">
+            Ich habe die{" "}
+            <Link
+              href="/datenschutz"
+              className="text-primary hover:text-primary-hover underline underline-offset-4"
+            >
+              Datenschutzerklärung
+            </Link>
+            {" "}gelesen und akzeptiere diese.
+          </label>
+        </motion.div>
 
         {submitStatus.type && (
           <motion.div

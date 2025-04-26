@@ -56,6 +56,13 @@ export async function getLandingPage() {
           "layout.contact-cta": {
             populate: "*",
           },
+          "layout.tech-stack": {
+            populate: {
+              technologies: {
+                populate: "*",
+              },
+            },
+          },
           "layout.price-grid": {
             populate: {
               priceCard: {

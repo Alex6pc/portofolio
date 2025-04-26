@@ -1,4 +1,3 @@
-
 type Image = {
   id: string;
   documentId: string;
@@ -18,7 +17,8 @@ type ComponentType =
   | "layout.content-with-image-quadrat"
   | "layout.contact-cta"
   | "layout.contact-section"
-  | "layout.featured-work";
+  | "layout.featured-work"
+  | "layout.tech-stack";
 
 interface Base<T extends ComponentType, D extends {} = {}> {
   __component: T;
@@ -35,7 +35,40 @@ export interface NavLink {
   isPrimary: boolean;
 }
 
-export type Block = HeroProps | ContactSectionProps | CardGridProps | FeaturedWorkProps | SectionHeadingProps | ContentWithImageProps | PriceGridProps | VideoProps | ContactCTAProps | TextProps | ContentWithImageQuadratProps;
+export interface TechnologyProps {
+  name: string;
+  logo: {
+    url: string;
+    alternativeText: string;
+  };
+  category?: string;
+  experienceLevel: "expert" | "proficient" | "intermediate" | "beginner" | "learning";
+  url?: string;
+}
+
+
+export type Block = 
+  | HeroProps 
+  | ContactSectionProps 
+  | CardGridProps 
+  | FeaturedWorkProps 
+  | SectionHeadingProps 
+  | ContentWithImageProps 
+  | PriceGridProps 
+  | VideoProps 
+  | ContactCTAProps 
+  | TextProps 
+  | ContentWithImageQuadratProps
+  | TechStackProps;
+
+  
+export interface TechStackProps extends Base<"layout.tech-stack"> {
+  title: string;
+  subtitle?: string;
+  description?: string;
+  technologies: TechnologyProps[];
+  showCategories?: boolean;
+}
 
 export interface HeroProps extends Base<"layout.hero"> {
   heading: string;

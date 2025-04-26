@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_elements_technologies",
+  "info": {
+    "displayName": "Technology",
+    "icon": "laptop-code",
+    "description": "Individual technology item with logo and experience level"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "category": {
+      "type": "string",
+      "description": "E.g., Frontend, Backend, DevOps, etc."
+    },
+    "experienceLevel": {
+      "type": "enumeration",
+      "enum": [
+        "expert",
+        "proficient",
+        "intermediate",
+        "beginner",
+        "learning"
+      ],
+      "default": "intermediate",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "description": "Optional link to technology website"
+    }
+  }
+} 

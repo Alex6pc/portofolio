@@ -64,20 +64,41 @@ export function Footer({ data }: Readonly<FooterProps>) {
   if (!data) return null;
   const { text, socialLinks } = data;
   return (
-    <footer className="container flex flex-col items-center justify-between gap-6 py-10 sm:flex-row">
-      <p className="text-center text-sm">&copy; {new Date().getFullYear()} {text}</p>
-      <div className="flex items-center gap-5">
-        {socialLinks &&
-          socialLinks.map((link) => (
-            <Link
-              href={link.href}
-              className="text-muted-foreground hover:text-foreground"
-              key={link.text}
-              target="_blank"
-            >
-              {renderIcon(link.text.toLowerCase())}
-            </Link>
-          ))}
+    <footer className="container py-10 border-t">
+      <div className="flex flex-col items-center justify-center gap-6">
+        {/* Legal Links */}
+        <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
+          <Link 
+            href="/legal-notice" 
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Impressum
+          </Link>
+          <Link 
+            href="/privacy-policy" 
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Datenschutzerklärung
+          </Link>
+        </div>
+        
+        {/* Copyright */}
+        <p className="text-center text-sm">&copy; {new Date().getFullYear()} {text}</p>
+        
+        {/* Social Links */}
+        <div className="flex items-center justify-center gap-5">
+          {socialLinks &&
+            socialLinks.map((link) => (
+              <Link
+                href={link.href}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                key={link.text}
+                target="_blank"
+              >
+                {renderIcon(link.text.toLowerCase())}
+              </Link>
+            ))}
+        </div>
       </div>
     </footer>
   );

@@ -36,7 +36,7 @@ export default function FeaturedWork(data: Readonly<FeaturedWorkProps>) {
             }
             
             return (
-              <div key={feature.id || index} className="mb-16">
+              <div id='projects' key={feature.id || index} className="mb-16">
                 <div className="flex flex-col md:flex-row md:max-h-[400px] gap-8 items-stretch rounded-[rem] border-4 border-decorative">
                   {/* Image section - Adjusted size */}
                   <motion.div

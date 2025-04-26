@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_layout_tech_stacks",
+  "info": {
+    "displayName": "Tech Stack",
+    "icon": "code",
+    "description": "Display technologies you use and are learning"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "technologies": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.technology",
+      "required": true,
+      "min": 1
+    },
+    "showCategories": {
+      "type": "boolean",
+      "default": false,
+      "description": "Group technologies by categories"
+    }
+  }
+} 

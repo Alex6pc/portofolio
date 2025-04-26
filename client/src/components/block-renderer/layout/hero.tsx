@@ -12,7 +12,7 @@ export function Hero(data: Readonly<HeroProps>) {
   if (!data) return null;
   const { heading, text, topLink, buttonLink, image } = data;
   return (
-    <section className="relative h-[600px] md:h-[800px] bg-background pt-10 md:pt-20">
+    <section className="relative h-[500px] md:h-[800px] bg-background pt-6 md:pt-20">
       {/* Background Color Layer */}
       <div className="absolute inset-0 bg-background-primary" />
 
@@ -29,30 +29,31 @@ export function Hero(data: Readonly<HeroProps>) {
       </div>
 
       {/* Gradient overlay with more opacity */}
-      <div className="absolute inset-0  bg-gradient-to-tr from-background" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-background" />
 
       {/* Content */}
-      <div className="container relative z-10 mx-auto px-4 mt-16 md:mt-1 flex flex-col justify-start md:justify-center h-full">
+      <div className="container relative z-10 mx-auto px-4 mt-8 md:mt-1 flex flex-col justify-center h-full">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="mb-4 md:mb-6 font-heading text-3xl md:text-5xl lg:text-7xl font-bold text-foreground-primary">
+          <h1 className="mb-3 md:mb-6 font-heading text-3xl md:text-5xl lg:text-7xl font-bold text-foreground-primary">
             {heading}
           </h1>
-          <p className="mb-6 md:mb-12 text-base md:text-xl lg:text-2xl text-foreground-secondary">
+          <p className="mb-4 md:mb-12 text-base md:text-xl lg:text-2xl text-foreground-secondary">
             {text}
           </p>
           {/* CTA Buttons */}
-          <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
+          <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-center sm:gap-4">
             {buttonLink &&
               buttonLink.map((link) => (
                 <Button
                   key={link.text}
                   size="lg"
                   variant={link.isPrimary ? "default" : "outline"}
+                  className="w-full sm:w-auto"
                 >
                   <Link
                     href={link.href}
                     onClick={() => scrollToComponent(link.href)}
-                    className="px-4 py-2 md:px-8 md:py-4 cursor-pointer text-sm md:text-base"
+                    className="w-full px-4 py-2 md:px-8 md:py-4 cursor-pointer text-sm md:text-base"
                   >
                     {link.text}
                   </Link>

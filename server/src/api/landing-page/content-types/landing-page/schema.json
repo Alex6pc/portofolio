@@ -28,7 +28,8 @@
         "layout.price-grid",
         "layout.content-with-image-quadrat",
         "layout.contact-cta",
-        "layout.featured-work"
+        "layout.featured-work",
+        "layout.tech-stack"
       ]
     }
   }

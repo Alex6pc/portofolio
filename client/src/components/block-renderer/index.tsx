@@ -11,6 +11,7 @@ import { Text } from "@/components/block-renderer/blocks/text";
 import { ContactCTA } from "@/components/block-renderer/layout/contact-cta";
 import { ContactSection } from "@/components/block-renderer/layout/contact-section";
 import FeaturedWork from "@/components/block-renderer/layout/featured-work";
+import TechStack from "@/components/block-renderer/layout/tech-stack";
 
 function blockRenderer(block: Block, index: number) {
   switch (block.__component) {
@@ -36,6 +37,8 @@ function blockRenderer(block: Block, index: number) {
       return <ContactSection key={index} {...block} />;
     case "layout.featured-work":
       return <FeaturedWork key={index} {...block} />;
+    case "layout.tech-stack":
+      return <TechStack key={index} {...block} />;
     default:
       return null;
   }
