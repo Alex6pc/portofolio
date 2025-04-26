@@ -63,16 +63,11 @@ Strapi 5 is your go-to open-source headless CMS for modern API creation and seam
 
 ## Getting Started With The Project Demo
 
-You can check out the [following video](https://www.youtube.com/watch?v=RSdRM4gw218) or follow the steps outlined below.
-
 **Step 1**: clone the project
 The first step is to clone the project to your local computer.
 
 I will be using GitHub CLI for this example. Let's start by cloning the project with the following command.
 
-``` bash
-  git clone https://github.com/PaulBratslavsky/strapi-5-next-js-starter-project.git
-```
 **Step 2**: run the setup script
 
 Once you have the project on your local machine, let's install the project dependencies and seed them with example data.
