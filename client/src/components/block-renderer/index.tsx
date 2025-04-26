@@ -8,8 +8,9 @@ import { CardCarousel } from "@/components/block-renderer/layout/card-carousel";
 import ContentWithImageQuadrat from "@/components/block-renderer/layout/content-with-image-quadrat";
 import { Video } from "@/components/block-renderer/blocks/video";
 import { Text } from "@/components/block-renderer/blocks/text";
-import { ContactCTA } from "./layout/contact-cta";
-import { ContactSection } from "./layout/contact-section";
+import { ContactCTA } from "@/components/block-renderer/layout/contact-cta";
+import { ContactSection } from "@/components/block-renderer/layout/contact-section";
+import FeaturedWork from "@/components/block-renderer/layout/featured-work";
 
 function blockRenderer(block: Block, index: number) {
   switch (block.__component) {
@@ -33,6 +34,8 @@ function blockRenderer(block: Block, index: number) {
       return <ContactCTA key={index} {...block} />;
     case "layout.contact-section":
       return <ContactSection key={index} {...block} />;
+    case "layout.featured-work":
+      return <FeaturedWork key={index} {...block} />;
     default:
       return null;
   }

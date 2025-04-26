@@ -17,7 +17,8 @@ type ComponentType =
   | "blocks.text"
   | "layout.content-with-image-quadrat"
   | "layout.contact-cta"
-  | "layout.contact-section";
+  | "layout.contact-section"
+  | "layout.featured-work";
 
 interface Base<T extends ComponentType, D extends {} = {}> {
   __component: T;
@@ -34,7 +35,7 @@ export interface NavLink {
   isPrimary: boolean;
 }
 
-export type Block = HeroProps | ContactSectionProps | CardGridProps | SectionHeadingProps | ContentWithImageProps | PriceGridProps | VideoProps | ContactCTAProps | TextProps | ContentWithImageQuadratProps;
+export type Block = HeroProps | ContactSectionProps | CardGridProps | FeaturedWorkProps | SectionHeadingProps | ContentWithImageProps | PriceGridProps | VideoProps | ContactCTAProps | TextProps | ContentWithImageQuadratProps;
 
 export interface HeroProps extends Base<"layout.hero"> {
   heading: string;
@@ -127,4 +128,22 @@ export interface ContactSectionProps extends Base<"layout.contact-section"> {
 
 export interface TextProps extends Base<"blocks.text"> {
   content: string;
+}
+
+export interface FeaturedWorkProps extends Base<"layout.featured-work"> {
+  title: string;
+  features: FeatureItem[];
+  isGrid: boolean;
+}
+
+export interface FeatureItem {
+  id: number;
+  title: string;
+  category: string;
+  description: string;
+  projectLink: string;
+  image: {
+    url: string;
+    name: string;
+  };
 }

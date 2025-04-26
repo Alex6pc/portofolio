@@ -24,7 +24,7 @@ export function ThemeToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuItem 
-          onClick={() => setTheme("light")}
+          onClick={() => setTheme("dark")}
           className={theme === "light" ? "bg-accent" : ""}
         >
           <Sun className="mr-2 h-4 w-4" />
@@ -38,7 +38,7 @@ export function ThemeToggle() {
           Dark
         </DropdownMenuItem>
         <DropdownMenuItem 
-          onClick={() => setTheme("system")}
+          onClick={() => setTheme("dark")}
           className={theme === "system" ? "bg-accent" : ""}
         >
           <Laptop className="mr-2 h-4 w-4" />

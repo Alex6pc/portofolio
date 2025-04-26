@@ -1,0 +1,27 @@
+{
+    "collectionName": "components_layout_featured_works",
+    "info": {
+        "displayName": "Featured Work",
+        "icon": "star",
+        "description": ""
+    },
+    "options": {},
+    "attributes": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "features": {
+            "type": "component",
+            "repeatable": true,
+            "component": "elements.feature-item",
+            "required": true,
+            "min": 1
+        },
+        "isGrid": {
+            "type": "boolean",
+            "default": false,
+            "required": true
+        }
+    }
+}

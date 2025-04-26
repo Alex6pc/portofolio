@@ -63,6 +63,13 @@ export async function getLandingPage() {
               },
             },
           },
+          "layout.featured-work": {
+            populate: {
+              features: {
+                populate: "*",
+              },
+            },
+          },
         },
       },
     },
