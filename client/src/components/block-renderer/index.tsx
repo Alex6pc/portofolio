@@ -2,10 +2,10 @@ import type { Block } from "@/types";
 
 import { Hero } from "@/components/block-renderer/layout/hero";
 import { SectionHeading } from "@/components/block-renderer/layout/section-heading";
-import { ContentWithImage } from "@/components/block-renderer/layout/content-with-image";
+import ContentWithImage from "@/components/block-renderer/layout/content-with-image";
 import { Pricing } from "@/components/block-renderer/layout/pricing";
 import { CardCarousel } from "@/components/block-renderer/layout/card-carousel";
-
+import ContentWithImageQuadrat from "@/components/block-renderer/layout/content-with-image-quadrat";
 import { Video } from "@/components/block-renderer/blocks/video";
 import { Text } from "@/components/block-renderer/blocks/text";
 
@@ -25,6 +25,8 @@ function blockRenderer(block: Block, index: number) {
       return <Video key={index} {...block} />;
     case "blocks.text":
       return <Text key={index} {...block} />;
+    case "layout.content-with-image-quadrat":
+      return <ContentWithImageQuadrat key={index} {...block} />;
     default:
       return null;
   }

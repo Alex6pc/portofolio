@@ -8,57 +8,144 @@ body {
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+    /* Base colors */
+    --background: #F4F4FB;
+    --background-secondary: #D9DAF2;
+
+    --text: #272757;
+    --text-secondary: #3B3A6B;
+
+    --border: #8686AC;
+    --border-secondary: #B7B8E4;
+
+    --primary: #8686AC;
+    --primary-text: #F4F4FB;
+    --primary-hover: #B7B8E4;
+    --primary-border: #8686AC;
+
+    --secondary: #B7B8E4;
+    --secondary-text: #272757;
+    --secondary-hover: #D9DAF2;
+    --secondary-border: #B7B8E4;
+
+    --accent: #8686AC;
+    --accent-text: #F4F4FB;
+    --accent-hover: #B7B8E4;
+
+    --muted: #D9DAF2;
+    --muted-text: #3B3A6B;
+    --muted-hover: #B7B8E4;
+
+    /* Light Mode Colors */
+    --light-background-primary: #cacaca;
+    --light-background-secondary: #f8f9fa;
+    --light-foreground-primary: #272757;
+    /* Darker blue from image */
+    --light-foreground-secondary: #505081;
+    /* Medium blue from image */
+
+    --light-primary: #272757;
+    /* Darker blue */
+    --light-primary-foreground: #ffffff;
+    --light-primary-hover: #505081;
+    /* Medium blue */
+
+    --light-secondary: #8686AC;
+    /* Light purple from image */
+    --light-secondary-foreground: #272757;
+    --light-secondary-hover: #505081;
+
+    --light-accent: #0F0E47;
+    /* Darkest blue */
+    --light-accent-foreground: #ffffff;
+
+    --light-muted: #f1f1f1;
+    --light-muted-foreground: #505081;
+
+    --light-border: #8686AC;
+    --light-border-hover: #505081;
+
+    /* Dark Mode Colors - From Blue Eclipse Image */
+    --dark-background-primary: #272757;
+    /* Left panel blue */
+    --dark-background-secondary: #505081;
+    /* Right panel blue */
+    --dark-foreground-primary: #ffffff;
+    --dark-foreground-secondary: #8686AC;
+    /* Light purple */
+
+    --dark-primary: #8686AC;
+    /* Light purple */
+    --dark-primary-foreground: #ffffff;
+    --dark-primary-hover: #a5a5c5;
+
+    --dark-secondary: #505081;
+    /* Medium blue */
+    --dark-secondary-foreground: #ffffff;
+    --dark-secondary-hover: #6464A4;
+
+    --dark-accent: #0F0E47;
+    /* Darkest blue */
+    --dark-accent-foreground: #ffffff;
+
+    --dark-muted: #505081;
+    --dark-muted-foreground: #8686AC;
+
+    --dark-border: #505081;
+    --dark-border-hover: #8686AC;
+
+    /* Shared Variables */
+    --radius: 0.75rem;
+
+    /* Light mode - black border */
+    --border-decorative: #000;
+
+    --shadow-custom: -30px 30px 0px 0px rgba(0, 0, 0, 0.5);
+    /* Define the shadow variable */
   }
+
+  /* Apply light mode by default */
+  :root {
+    --background: var(--light-background-primary);
+    --background-secondary: var(--light-background-secondary);
+    --text: var(--light-foreground-primary);
+    --text-secondary: var(--light-foreground-secondary);
+    --primary: var(--light-primary);
+    --primary-text: var(--light-primary-foreground);
+    --primary-hover: var(--light-primary-hover);
+    --secondary: var(--light-secondary);
+    --secondary-text: var(--light-secondary-foreground);
+    --secondary-hover: var(--light-secondary-hover);
+    --accent: var(--light-accent);
+    --accent-text: var(--light-accent-foreground);
+    --muted: var(--light-muted);
+    --muted-text: var(--light-muted-foreground);
+    --border: var(--light-border);
+    --border-hover: var(--light-border-hover);
+  }
+
+  /* Dark mode class overrides */
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --background: var(--dark-background-primary);
+    --background-secondary: var(--dark-background-secondary);
+    --text: var(--dark-foreground-primary);
+    --text-secondary: var(--dark-foreground-secondary);
+    --primary: #8750fc;
+    --primary-text: #ffffff;
+    --primary-hover: #9d71fd;
+    --primary-border: #8750fc;
+    --secondary: var(--dark-secondary);
+    --secondary-text: var(--dark-secondary-foreground);
+    --secondary-hover: var(--dark-secondary-hover);
+    --accent: var(--dark-accent);
+    --accent-text: var(--dark-accent-foreground);
+    --muted: var(--dark-muted);
+    --muted-text: var(--dark-muted-foreground);
+    --border: var(--dark-border);
+    --border-hover: var(--dark-border-hover);
+
+    /* Dark mode - white border */
+    --border-decorative: #fff;
   }
 }
 
@@ -67,7 +154,7 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-text;
   }
 }
 
@@ -75,7 +162,6 @@ body {
 /******************************************* 
   Rich Text Styles
 *******************************************/ 
-
 /* Headers */
 .rich-text h1 {
   @apply text-4xl font-bold mb-4 text-primary;
@@ -103,7 +189,7 @@ body {
 
 /* Horizontal rules */
 .rich-text hr {
-  @apply border-accent-foreground my-8;
+  @apply border-accent my-8;
 }
 
 .rich-text a {
@@ -112,12 +198,12 @@ body {
 
 /* Typographic replacements */
 .rich-text p {
-  @apply mb-4 text-lg text-muted-foreground;
+  @apply mb-4 text-secondary;
 }
 
 /* Emphasis */
 .rich-text strong {
-  @apply font-bold text-gray-300;
+  @apply font-bold;
 }
 
 .rich-text em {
@@ -130,7 +216,7 @@ body {
 
 /* Blockquotes */
 .rich-text blockquote {
-  @apply border-l-4 border-accent-foreground pl-4 py-2 mb-4;
+  @apply border-l-4 border-accent pl-4 py-2 mb-4;
 }
 
 /* Lists */
@@ -143,20 +229,20 @@ body {
 }
 
 .rich-text li {
-  @apply mb-2 text-muted-foreground;
+  @apply mb-2 text-secondary;
 }
 
-.rich-text li > ul {
+.rich-text li>ul {
   @apply list-disc pl-4 mb-2;
 }
 
-.rich-text li > ol {
-  @apply list-decimal pl-4 mb-2 text-muted-foreground;
+.rich-text li>ol {
+  @apply list-decimal pl-4 mb-2 text-muted;
 }
 
 /* Code blocks */
 .rich-text pre {
-  @apply font-mono bg-gray-900 text-gray-200 rounded p-4  my-6;
+  @apply font-mono bg-gray-900 text-gray-200 rounded p-4 my-6;
 }
 
 .rich-text code {
@@ -186,3 +272,54 @@ body {
   @apply bg-yellow-100 border-yellow-500 text-yellow-700 px-4 py-2 rounded-lg mb-4;
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Animations */
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 15s linear infinite;
+}
+
+.animate-pulse {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+@keyframes border-draw {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+  }
+
+  25% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  50% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%);
+  }
+
+  75% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.animate-border-draw::before {
+  content: '';
+  animation: border-draw 2s ease-in-out forwards;
+}

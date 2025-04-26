@@ -21,30 +21,47 @@ const config = {
     },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        background: {
+          DEFAULT: "var(--background)",
+          secondary: "var(--background-secondary)",
+        },
+        text: {
+          DEFAULT: "var(--foreground-primary)",
+          secondary: "var(--foreground-secondary)",
+        },
+        border: {
+          DEFAULT: "var(--border)",
+          secondary: "var(--border-secondary)",
+          decorative: "var(--border-decorative)",
+        },
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "var(--primary)",
+          text: "var(--primary-foreground)",
+          hover: "var(--primary-hover)",
+          border: "var(--primary-border)",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "var(--secondary)",
+          text: "var(--secondary-foreground)",
+          hover: "var(--secondary-hover)",
+          border: "var(--secondary-border)",
         },
+        accent: {
+          DEFAULT: "var(--accent)",
+          text: "var(--accent-foreground)",
+          hover: "var(--accent-hover)",
+        },
+        muted: {
+          DEFAULT: "var(--muted)",
+          text: "var(--muted-foreground)",
+          hover: "var(--muted-hover)",
+        },
+        activeBorder: "rgb(208, 22, 106)",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -53,16 +70,6 @@ const config = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
-        },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
         },
       },
       borderRadius: {

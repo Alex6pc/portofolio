@@ -46,6 +46,13 @@ export async function getLandingPage() {
               },
             },
           },
+          "layout.content-with-image-quadrat": {
+            populate: {
+              image: {
+                fields: ["url", "alternativeText", "name"],
+              },
+            },
+          },
           "layout.price-grid": {
             populate: {
               priceCard: {
@@ -98,14 +105,13 @@ export async function getPageBySlug(slug: string, status: string) {
               },
             },
           },
-        },
       },
     },
     filters: {
       slug: slug,
     },
     status: status as "draft" | "published" | undefined,
-  });
+}});
   return page;
 }
 

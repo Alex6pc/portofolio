@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_layout_content_with_image_quadrats",
+  "info": {
+    "displayName": "Content With Image Quadrat",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "subHeading": {
+      "type": "string"
+    },
+    "text": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "audios",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "reverse": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

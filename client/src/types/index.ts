@@ -14,7 +14,8 @@ type ComponentType =
   | "layout.content-with-image"   
   | "layout.price-grid"
   | "blocks.video"
-  | "blocks.text";
+  | "blocks.text"
+  | "layout.content-with-image-quadrat";
 
 interface Base<T extends ComponentType, D extends {} = {}> {
   __component: T;
@@ -31,7 +32,7 @@ export interface NavLink {
   isPrimary: boolean;
 }
 
-export type Block = HeroProps | CardGridProps | SectionHeadingProps | ContentWithImageProps | PriceGridProps | VideoProps | TextProps;
+export type Block = HeroProps | CardGridProps | SectionHeadingProps | ContentWithImageProps | PriceGridProps | VideoProps | TextProps | ContentWithImageQuadratProps;
 
 export interface HeroProps extends Base<"layout.hero"> {
   heading: string;
@@ -62,6 +63,16 @@ export interface SectionHeadingProps extends Base<"layout.section-heading"> {
 }
 
 export interface ContentWithImageProps extends Base<"layout.content-with-image"> {
+  reverse: boolean;
+  image: {
+    url: string;
+    name: string;
+  };
+  heading: string;
+  subHeading: string;
+  text: string;
+}
+export interface ContentWithImageQuadratProps extends Base<"layout.content-with-image-quadrat"> {
   reverse: boolean;
   image: {
     url: string;
