@@ -25,5 +25,6 @@ export default async function PageBySlugRoute({ params }: PageProps) {
   const data = await getPageBySlug(slug, status);
   const blocks = data?.data[0]?.blocks;
   if (!blocks) return null;
-  return <div>{blocks ? <BlockRenderer blocks={blocks} /> : null}</div>;
+  return <div className="w-full relative overflow-hidden">{blocks ? <BlockRenderer blocks={blocks} /> : null}</div>;
 }
+ 

@@ -81,7 +81,7 @@ export function Header({ data }: Readonly<HeaderProps>) {
                 </Link>
               </Button>
             )}
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
           </nav>
         </div>
       </MobileNavbar>

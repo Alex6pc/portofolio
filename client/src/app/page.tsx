@@ -5,5 +5,6 @@ export default async function Home() {
   const data = await getLandingPage();
   const blocks = data?.data?.blocks;
   if (!blocks) return null;
-  return <div>{blocks ? <BlockRenderer blocks={blocks} /> : null}</div>;
+  return <div className="w-full relative overflow-hidden">
+    {blocks ? <BlockRenderer blocks={blocks} /> : null}</div>;
 }
