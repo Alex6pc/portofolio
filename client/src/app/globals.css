@@ -104,28 +104,8 @@ body {
     /* Define the shadow variable */
   }
 
-  /* Apply light mode by default */
+  /* Apply dark mode by default */
   :root {
-    --background: var(--light-background-primary);
-    --background-secondary: var(--light-background-secondary);
-    --text: var(--light-foreground-primary);
-    --text-secondary: var(--light-foreground-secondary);
-    --primary: var(--light-primary);
-    --primary-text: var(--light-primary-foreground);
-    --primary-hover: var(--light-primary-hover);
-    --secondary: var(--light-secondary);
-    --secondary-text: var(--light-secondary-foreground);
-    --secondary-hover: var(--light-secondary-hover);
-    --accent: var(--light-accent);
-    --accent-text: var(--light-accent-foreground);
-    --muted: var(--light-muted);
-    --muted-text: var(--light-muted-foreground);
-    --border: var(--light-border);
-    --border-hover: var(--light-border-hover);
-  }
-
-  /* Dark mode class overrides */
-  .dark {
     --background: var(--dark-background-primary);
     --background-secondary: var(--dark-background-secondary);
     --text: var(--dark-foreground-primary);
@@ -146,6 +126,29 @@ body {
 
     /* Dark mode - white border */
     --border-decorative: #fff;
+  }
+
+  /* Light mode class overrides */
+  .light {
+    --background: var(--light-background-primary);
+    --background-secondary: var(--light-background-secondary);
+    --text: var(--light-foreground-primary);
+    --text-secondary: var(--light-foreground-secondary);
+    --primary: var(--light-primary);
+    --primary-text: var(--light-primary-foreground);
+    --primary-hover: var(--light-primary-hover);
+    --secondary: var(--light-secondary);
+    --secondary-text: var(--light-secondary-foreground);
+    --secondary-hover: var(--light-secondary-hover);
+    --accent: var(--light-accent);
+    --accent-text: var(--light-accent-foreground);
+    --muted: var(--light-muted);
+    --muted-text: var(--light-muted-foreground);
+    --border: var(--light-border);
+    --border-hover: var(--light-border-hover);
+
+    /* Light mode - black border */
+    --border-decorative: #000;
   }
 }
 

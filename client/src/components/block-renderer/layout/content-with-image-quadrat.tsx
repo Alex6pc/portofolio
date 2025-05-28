@@ -4,27 +4,75 @@ import React from "react";
 import type { ContentWithImageQuadratProps } from "@/types";
 import { StrapiImage } from "@/components/custom/strapi-image";
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/utils/scrollUtils";
 
 export default function ContentWithImageQuadrat(data: Readonly<ContentWithImageQuadratProps>) {
   if (!data) return null;
   const { reverse, image, heading, subHeading, text } = data;
   const reverseStyle = reverse ? "md:flex-row" : "md:flex-row-reverse";
+  const isMobile = useIsMobile();
+
+  // Animation configs - disabled on mobile
+  const meshGradientAnimation = isMobile ? {} : {
+    scale: [1, 1.1, 1],
+    rotate: [0, 5, -5, 0],
+    x: [-50, 50, -50],
+    y: [-30, 30, -30]
+  };
+
+  const meshGradientTransition = isMobile ? {} : {
+    duration: 30,
+    repeat: Infinity,
+    ease: "easeInOut"
+  };
+
+  const floatingShape1Animation = isMobile ? {} : {
+    rotate: [0, 360],
+    y: [0, -30, 0],
+    x: [-20, 20, -20],
+    scale: [1, 1.1, 1]
+  };
+
+  const floatingShape1Transition = isMobile ? {} : {
+    rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+    y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
+    x: { duration: 7, repeat: Infinity, ease: "easeInOut" },
+    scale: { duration: 8, repeat: Infinity, ease: "easeInOut" }
+  };
+
+  const floatingShape2Animation = isMobile ? {} : {
+    rotate: [0, -360],
+    x: [-30, 30, -30],
+    y: [-20, 20, -20],
+    scale: [1, 0.9, 1]
+  };
+
+  const floatingShape2Transition = isMobile ? {} : {
+    rotate: { duration: 25, repeat: Infinity, ease: "linear" },
+    x: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+    y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+    scale: { duration: 9, repeat: Infinity, ease: "easeInOut" }
+  };
+
+  const headingDotsAnimation = isMobile ? {} : {
+    y: [0, -10, 0],
+    x: [0, 10, 0],
+    rotate: [0, 180, 0],
+    opacity: [0.5, 1, 0.5]
+  };
+
+  const headingDotsTransition = isMobile ? {} : {
+    duration: 12,
+    repeat: Infinity,
+    ease: "easeInOut"
+  };
 
   return (
     <section className="relative w-full max-w-[2000px] mx-auto bg-background py-16 md:py-24 overflow-hidden">
       {/* Animated mesh gradient background */}
       <motion.div
-        animate={{
-          scale: [1, 1.1, 1],
-          rotate: [0, 5, -5, 0],
-          x: [-50, 50, -50],
-          y: [-30, 30, -30]
-        }}
-        transition={{
-          duration: 30,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
+        animate={meshGradientAnimation}
+        transition={meshGradientTransition}
         className="absolute inset-0 opacity-50 max-w-[2000px]"
       >
         <div className="absolute w-[800px] h-[800px] bg-gradient-to-r from-primary via-secondary to-primary blur-[100px] -top-1/2 -left-1/2" />
@@ -33,66 +81,37 @@ export default function ContentWithImageQuadrat(data: Readonly<ContentWithImageQ
 
       {/* Floating shapes */}
       <motion.div
-        animate={{
-          rotate: [0, 360],
-          y: [0, -30, 0],
-          x: [-20, 20, -20],
-          scale: [1, 1.1, 1]
-        }}
-        transition={{
-          rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-          y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
-          x: { duration: 7, repeat: Infinity, ease: "easeInOut" },
-          scale: { duration: 8, repeat: Infinity, ease: "easeInOut" }
-        }}
+        animate={floatingShape1Animation}
+        transition={floatingShape1Transition}
         className="absolute left-[15%] top-[5%] w-24 h-24 border-2 border-primary/20 rounded-full"
       />
       <motion.div
-        animate={{
-          rotate: [0, -360],
-          x: [-30, 30, -30],
-          y: [-20, 20, -20],
-          scale: [1, 0.9, 1]
-        }}
-        transition={{
-          rotate: { duration: 25, repeat: Infinity, ease: "linear" },
-          x: { duration: 8, repeat: Infinity, ease: "easeInOut" },
-          y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-          scale: { duration: 9, repeat: Infinity, ease: "easeInOut" }
-        }}
+        animate={floatingShape2Animation}
+        transition={floatingShape2Transition}
         className="absolute right-[20%] bottom-[15%] w-32 h-32 border-2 border-secondary/20 rounded-lg -rotate-12"
       />
 
       <div className={`container relative flex flex-col gap-16 md:gap-20 ${reverseStyle}`}>
         {/* Content Section */}
         <motion.div
-          initial={{ opacity: 0, x: reverse ? -50 : 50 }}
+          initial={{ opacity: 0, x: isMobile ? 0 : (reverse ? -50 : 50) }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: isMobile ? 0.3 : 0.8, ease: "easeOut" }}
           className="flex-1 flex flex-col justify-center px-2 md:px-8 pb-8 md:pb-0"
         >
           {/* Heading */}
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: isMobile ? 0 : 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: isMobile ? 0.2 : 0.5, delay: isMobile ? 0 : 0.1 }}
             className="text-4xl md:text-5xl font-bold text-text tracking-tight mb-4 relative inline-flex items-center gap-4"
           >
             {heading}
             <motion.div
-              animate={{
-                y: [0, -10, 0],
-                x: [0, 10, 0],
-                rotate: [0, 180, 0],
-                opacity: [0.5, 1, 0.5]
-              }}
-              transition={{
-                duration: 12,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
+              animate={headingDotsAnimation}
+              transition={headingDotsTransition}
               className="inline-flex"
             >
               <div className="w-2 h-2 bg-primary rounded-full" />
@@ -104,10 +123,10 @@ export default function ContentWithImageQuadrat(data: Readonly<ContentWithImageQ
           {/* Subheading */}
           {subHeading && (
             <motion.h3
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: isMobile ? 0 : 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.15 }}
+              transition={{ duration: isMobile ? 0.2 : 0.5, delay: isMobile ? 0 : 0.15 }}
               className="text-xl md:text-2xl font-medium text-text-secondary mb-6"
             >
               {subHeading}
@@ -116,10 +135,10 @@ export default function ContentWithImageQuadrat(data: Readonly<ContentWithImageQ
 
           {/* Description */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: isMobile ? 0 : 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: isMobile ? 0.2 : 0.5, delay: isMobile ? 0 : 0.2 }}
             className="text-base md:text-lg text-text-secondary leading-relaxed max-w-prose mb-10"
           >
             {text}
@@ -127,10 +146,10 @@ export default function ContentWithImageQuadrat(data: Readonly<ContentWithImageQ
 
           {/* Social Links */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: isMobile ? 0 : 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: isMobile ? 0.2 : 0.5, delay: isMobile ? 0 : 0.3 }}
             className="flex gap-8"
           >
             {/* Social icons */}
@@ -154,10 +173,10 @@ export default function ContentWithImageQuadrat(data: Readonly<ContentWithImageQ
 
         {/* Image Section with Background Frame */}
         <motion.div
-          initial={{ opacity: 0, x: reverse ? 50 : -50 }}
+          initial={{ opacity: 0, x: isMobile ? 0 : (reverse ? 50 : -50) }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: isMobile ? 0.3 : 0.8, ease: "easeOut" }}
           className="relative"
         >
 
