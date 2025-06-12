@@ -192,7 +192,7 @@ export function ContactForm() {
           <label htmlFor="privacy" className="text-sm text-text-secondary">
             Ich habe die{" "}
             <Link
-              href="/datenschutz"
+              href="/privacy-policy"
               className="text-primary hover:text-primary-hover underline underline-offset-4"
             >
               Datenschutzerklärung
